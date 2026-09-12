@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+:root {
+  /* Luxury perfume palette */
+  --color-bg: #faf7f2; /* warm cream */
+  --color-bg-alt: #f1ebe0; /* parchment */
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #4a4a4a;
+  --color-ink-muted: #8a8a8a;
+  --color-line: #e5dccf;
+  --color-gold: #b08a3e; /* champagne gold */
+  --color-gold-dark: #8a6a2e;
+  --color-gold-light: #d4b06a;
+  --color-rose: #b85c6e; /* dusty rose */
+  --color-rose-soft: #e8c5cc;
+  --color-amber: #c8852d;
+  --color-oud: #3d2817; /* dark woody brown */
+  --color-emerald: #4a5d3a;
+
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-line: var(--color-line);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-light: var(--color-gold-light);
+  --color-rose: var(--color-rose);
+  --color-rose-soft: var(--color-rose-soft);
+  --color-amber: var(--color-amber);
+  --color-oud: var(--color-oud);
+  --color-emerald: var(--color-emerald);
+  --color-bg-alt: var(--color-bg-alt);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02", "cv11";
+}
+
+/* Headings use serif display font */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Decorative text "small caps" label style */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+}
+
+/* Reusable components via class */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+.btn-primary:hover {
+  background: var(--color-oud);
+  border-color: var(--color-oud);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.btn-secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: white;
+  border-color: var(--color-gold);
+}
+.btn-gold:hover {
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  color: var(--color-gold-dark);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+/* Decorative dividers */
+.divider-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  margin: 0 0.75rem;
+  vertical-align: middle;
+}
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(26, 26, 26, 0.7) 0%,
+    rgba(26, 26, 26, 0.4) 50%,
+    rgba(26, 26, 26, 0.1) 100%
+  );
+}
+
+/* Subtle pattern */
+.bg-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(176, 138, 62, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+/* Scent-note ring pulse */
+@keyframes ringPulse {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.6; }
+}
+.ring-pulse {
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-light); }
+
+/* Star rating */
+.star { color: var(--color-gold); }
+.star-empty { color: var(--color-line); }
+
+/* Toast animation */
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.toast-in { animation: slideIn 0.3s ease-out; }
+
+/* Marquee for announcements */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}

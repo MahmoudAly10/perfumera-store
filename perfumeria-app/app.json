@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Perfumeria",
+    "slug": "perfumeria-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "perfumeria",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#faf7f2"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleDisplayName": "Perfumeria"
+    },
+    "android": {
+      "package": "com.perfumeria.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#faf7f2",
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "monochromeImage": "./assets/monochrome-icon.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "shopUrl": "https://ocqnqqqlfxbrv.space.minimax.io/"
+    }
+  }
+}
