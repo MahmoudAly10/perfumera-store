@@ -15,10 +15,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (mode === "login") {
-      const res = auth.login(email);
+      const res = await auth.login(email, password);
       if (res.success) {
         ui.showToast("success", res.message);
         router.push("/account");
@@ -26,10 +26,12 @@ export default function LoginPage() {
         ui.showToast("error", res.message);
       }
     } else {
-      const res = auth.signup(name, email);
+      const res = await auth.signup(name, email, password);
       if (res.success) {
         ui.showToast("success", res.message);
-        router.push("/account");
+        if (!res.message.toLowerCase().includes("check your email")) {
+          router.push("/account");
+        }
       } else {
         ui.showToast("error", res.message);
       }
@@ -127,8 +129,7 @@ export default function LoginPage() {
 
             {mode === "login" && (
               <p className="text-xs text-[var(--color-ink-muted)] bg-[var(--color-bg-alt)] p-3">
-                <strong>Demo:</strong> Use any email, or{" "}
-                <code className="font-mono">demo@perfumeria.com</code> to log in as a user with order history.
+                <strong>Need an account?</strong> Switch to <em>Sign Up</em> above. Your account is created in Supabase with real password verification.
               </p>
             )}
 

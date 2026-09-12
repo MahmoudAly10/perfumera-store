@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { ToastHost } from "@/components/toast";
 import { CartDrawer } from "@/components/cart-drawer";
 import { SearchOverlay } from "@/components/search-overlay";
+import { AuthInit } from "@/components/auth-init";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <AuthInit />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
